@@ -8,7 +8,7 @@ const AuthProviders = ({ children }) => {
     user,
     loading,
   };
-  return <AuthContext.Provider value={authInfo}></AuthContext.Provider>;
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProviders;

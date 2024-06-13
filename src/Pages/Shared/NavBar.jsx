@@ -12,7 +12,7 @@ const NavBar = () => {
 
   //   const [isAdmin] = useAdmin();
   //   const [isInstructor] = useInstructorRole();
-  const user = true;
+  const user = false;
 
   const navItems = (
     <>

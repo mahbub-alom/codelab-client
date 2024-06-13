@@ -176,7 +176,7 @@ const Footer = () => {
           </div>
 
           <p className="text-xs text-white text-center">
-            &copy; 2023 Code Lab All rights reserved.
+            &copy; 2024 Code Lab All rights reserved.
           </p>
         </div>
       </footer>
