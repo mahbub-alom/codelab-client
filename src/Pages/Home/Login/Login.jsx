@@ -5,11 +5,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import useAuth from "../../../Hook/useAuth";
+import axios from "axios";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
@@ -37,9 +39,9 @@ const Login = () => {
       })
       .catch((error) => {
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "error",
-          title: "Something went wrong",
+          title: `${error.message}`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -57,24 +59,21 @@ const Login = () => {
           email: user?.email,
           photoURL: user?.photoURL,
         };
-        fetch("https://cricket-starts-server.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(saveUser),
-        })
-          .then((res) => res.json())
-          .then(() => {
-            navigate(from, { replace: true });
+        axios
+        .post("http://localhost:5000/postUser", saveUser)
+        .then((data) => {
+          if (data?.data?.insertedId) {
+            reset();
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "User Login successfully.",
+              title: "User google sign in successfully.",
               showConfirmButton: false,
               timer: 1500,
             });
-          });
+            navigate(from, { replace: true });
+          }
+        });
       })
       .catch((error) => {
         Swal.fire({

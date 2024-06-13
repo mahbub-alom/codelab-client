@@ -4,20 +4,21 @@ import RegisterImage from "../../../assets/Register/register.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hook/useAuth";
+import axios from "axios";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm();
   const { registerWithPass, updateUserProfile } = useAuth();
   const [passMatch, setPassMatch] = useState("");
 
-  // const location = useLocation();
-  // const navigate = useNavigate();
-  // const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     if (data?.password !== data?.confirmPassword) {
@@ -31,8 +32,6 @@ const Register = () => {
     registerWithPass(data?.email, data?.password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
-
         // add additional information of user
         updateUserProfile(data?.name, data?.photoURL).then(() => {
           const saveUser = {
@@ -40,30 +39,21 @@ const Register = () => {
             email: data.email,
             photoURL: data.photoURL,
           };
-          console.log('saved user',saveUser);
-
-          // fetch("https://cricket-starts-server.vercel.app/users", {
-          //   method: "POST",
-          //   headers: {
-          //     "content-type": "application/json",
-          //   },
-          //   body: JSON.stringify(saveUser),
-          // })
-          //   .then((res) => res.json())
-          //   .then((data) => {
-          //     // console.log("after post",data)
-          //     if (data?.insertedId) {
-          //       reset();
-          //       Swal.fire({
-          //         position: "top-end",
-          //         icon: "success",
-          //         title: "User created successfully.",
-          //         showConfirmButton: false,
-          //         timer: 1500,
-          //       });
-          //       navigate(from, { replace: true });
-          //     }
-          //   });
+          axios
+            .post("http://localhost:5000/postUser", saveUser)
+            .then((data) => {
+              if (data?.data?.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(from, { replace: true });
+              }
+            });
         });
       })
       .catch((err) => {
@@ -145,9 +135,7 @@ const Register = () => {
               </p>
             )}
             {errors.password?.type === "pattern" && (
-              <p className="text-red-600">
-                Password must have one Uppercase
-              </p>
+              <p className="text-red-600">Password must have one Uppercase</p>
             )}
           </div>
           <div className="flex flex-col text-gray-800 py-2">
