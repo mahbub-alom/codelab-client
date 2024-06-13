@@ -9,6 +9,7 @@ import UserInfo from "../Pages/Dashboard/UserInfo";
 import UpdateUserInfo from "../Pages/Dashboard/UpdateUserInfo";
 import AddAClass from "../Pages/Dashboard/AddClass";
 import MyClass from "../Pages/Dashboard/MyClass";
+import AllClass from "../Pages/AllClass/AllClass";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/allClasses",
+        element: <AllClass />,
       },
     ],
   },
