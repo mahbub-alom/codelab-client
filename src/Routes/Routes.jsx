@@ -7,6 +7,7 @@ import Register from "../Pages/Home/Register/Register";
 import DashboardLayout from "../Layout/DashboardLayout";
 import UserInfo from "../Pages/Dashboard/UserInfo";
 import UpdateUserInfo from "../Pages/Dashboard/UpdateUserInfo";
+import AddAClass from "../Pages/Dashboard/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         element: <UpdateUserInfo />,
         loader:({params})=>fetch(`http://localhost:5000/getSingleUser/${params.id}`)
       },
+      {
+        path:"addclass",
+        element:<AddAClass/>
+      }
     ],
   },
 ]);
