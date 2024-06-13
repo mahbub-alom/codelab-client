@@ -38,6 +38,7 @@ const AddAClass = () => {
                 instructorName: user?.displayName,
                 instructorEmail: user?.email,
                 availableSeats: data.availableSeats,
+                description:data.description,
                 price: data.price,
                 status: "pending",
                 totalEnrolled: 0,
@@ -58,7 +59,8 @@ const AddAClass = () => {
     //     "Content-Type": "application/json",
     //     Authorization: `Bearer ${token}`,
     //   },
-    axios.post("http://localhost:5000/classes",classData)
+    axios
+      .post("http://localhost:5000/classes", classData)
       .then((data) => {
         if (data.data.insertedId) {
           reset();
@@ -75,7 +77,9 @@ const AddAClass = () => {
   return (
     <>
       <Zoom>
-        <h1 className="text-2xl font-semibold text-[#2196F3]">Add A New Class</h1>
+        <h1 className="text-2xl font-semibold text-[#2196F3]">
+          Add A New Class
+        </h1>
       </Zoom>
       <div className="w-full mx-auto my-10">
         <form
@@ -146,6 +150,18 @@ const AddAClass = () => {
                 className="w-full px-3 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
+          </div>
+          <div>
+            <label className="form-control">
+              <div className="label">
+              <label className="text-gray-700 font-semibold">Description:</label>
+              </div>
+              <textarea
+              {...register("description", { required: true })}
+                className="textarea textarea-bordered h-24"
+                placeholder="Course Description"
+              ></textarea>
+            </label>
           </div>
           <div>
             <input

@@ -46,7 +46,7 @@ const DashboardLayout = () => {
             </li>
             <li>
               <NavLink
-                to="paymentHistory"
+                to="myclass"
                 className="text-[#2196F3] text-2xl hover:bg-[#6aa5cd] hover:text-white w-full rounded-lg px-4 py-2 mb-2 inline-block leading-loose"
               >
                 My Added Class

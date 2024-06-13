@@ -8,6 +8,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import UserInfo from "../Pages/Dashboard/UserInfo";
 import UpdateUserInfo from "../Pages/Dashboard/UpdateUserInfo";
 import AddAClass from "../Pages/Dashboard/AddClass";
+import MyClass from "../Pages/Dashboard/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -39,12 +40,17 @@ const router = createBrowserRouter([
       {
         path: "updateUserInfo/:id",
         element: <UpdateUserInfo />,
-        loader:({params})=>fetch(`http://localhost:5000/getSingleUser/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/getSingleUser/${params.id}`),
       },
       {
-        path:"addclass",
-        element:<AddAClass/>
-      }
+        path: "addclass",
+        element: <AddAClass />,
+      },
+      {
+        path: "myclass",
+        element: <MyClass />,
+      },
     ],
   },
 ]);
