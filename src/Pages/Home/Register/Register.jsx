@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import RegisterImage from "../../../assets/Register/register.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,15 +9,15 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    reset,
+    // reset,
     formState: { errors },
   } = useForm();
   const { registerWithPass, updateUserProfile } = useAuth();
   const [passMatch, setPassMatch] = useState("");
 
-  const location = useLocation();
-  const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const location = useLocation();
+  // const navigate = useNavigate();
+  // const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     if (data?.password !== data?.confirmPassword) {
@@ -42,28 +42,28 @@ const Register = () => {
           };
           console.log('saved user',saveUser);
 
-          fetch("https://cricket-starts-server.vercel.app/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              // console.log("after post",data)
-              if (data?.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate(from, { replace: true });
-              }
-            });
+          // fetch("https://cricket-starts-server.vercel.app/users", {
+          //   method: "POST",
+          //   headers: {
+          //     "content-type": "application/json",
+          //   },
+          //   body: JSON.stringify(saveUser),
+          // })
+          //   .then((res) => res.json())
+          //   .then((data) => {
+          //     // console.log("after post",data)
+          //     if (data?.insertedId) {
+          //       reset();
+          //       Swal.fire({
+          //         position: "top-end",
+          //         icon: "success",
+          //         title: "User created successfully.",
+          //         showConfirmButton: false,
+          //         timer: 1500,
+          //       });
+          //       navigate(from, { replace: true });
+          //     }
+          //   });
         });
       })
       .catch((err) => {
@@ -128,7 +128,7 @@ const Register = () => {
               {...register("password", {
                 minLength: 6,
                 maxLength: 32,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                pattern: /(?=.*[A-Z])/,
                 required: true,
               })}
               placeholder="Enter a Password"
@@ -146,8 +146,7 @@ const Register = () => {
             )}
             {errors.password?.type === "pattern" && (
               <p className="text-red-600">
-                Password must have one Uppercase one lower case, one number and
-                one special character.
+                Password must have one Uppercase
               </p>
             )}
           </div>
