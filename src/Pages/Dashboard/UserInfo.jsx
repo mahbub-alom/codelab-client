@@ -6,8 +6,8 @@ import useAuth from "../../Hook/useAuth";
 
 const UserInfo = () => {
   const { user } = useAuth();
-  const { data: users = [], isPending } = useQuery({
-    queryKey: ["userInfo",user?.email],
+  const { data: usersData = [], isPending } = useQuery({
+    queryKey: ["userInfo", user?.email],
     queryFn: async () => {
       const res = await axios.get(
         `http://localhost:5000/getUser?email=${user.email}`
@@ -21,38 +21,38 @@ const UserInfo = () => {
 
   return (
     <div>
-      {users.map((user) => (
+      {usersData.map((users) => (
         <div
-          key={user._id}
+          key={users._id}
           className="min-h-screen flex items-center justify-center bg-gray-100"
         >
           <div className="bg-white shadow-lg rounded-lg p-6 md:p-10 w-full max-w-md">
             <div className="flex items-center mb-6">
               <img
                 className="w-16 h-16 rounded-full mr-4"
-                src={user?.photoURL}
+                src={users?.photoURL}
                 alt="Profile"
               />
               <div>
                 <h2 className="text-2xl font-semibold text-gray-800">
-                  {user.name}
+                  {users?.name}
                 </h2>
-                <p className="text-gray-600">{user?.name}</p>
+                <p className="text-gray-600">{users?.name}</p>
               </div>
             </div>
             <div className="mb-4">
               <h3 className="text-lg font-medium text-gray-700">Email:</h3>
-              <p className="text-gray-600">{user?.email}</p>
+              <p className="text-gray-600">{users?.email}</p>
             </div>
             <div className="mb-4">
               <h3 className="text-lg font-medium text-gray-700">Phone:</h3>
-              <p className="text-gray-600">{user?.phone}</p>
+              <p className="text-gray-600">{users?.userPhone}</p>
             </div>
             <div className="mb-4">
               <h3 className="text-lg font-medium text-gray-700">Address:</h3>
-              <p className="text-gray-600">{user?.address}</p>
+              <p className="text-gray-600">{users?.userAddress}</p>
             </div>
-            <Link>
+            <Link to={`/dashboard/updateUserInfo/${users?._id}`}>
               <button className="w-full my-5 py-2 bg-[#6aa5cd] text-white shadow-lg shadow-[#b2dbf6] hover:shadow-[#405c6e] font-semibold rounded-lg">
                 Update Profile
               </button>

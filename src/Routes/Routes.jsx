@@ -6,6 +6,7 @@ import Login from "../Pages/Home/Login/Login";
 import Register from "../Pages/Home/Register/Register";
 import DashboardLayout from "../Layout/DashboardLayout";
 import UserInfo from "../Pages/Dashboard/UserInfo";
+import UpdateUserInfo from "../Pages/Dashboard/UpdateUserInfo";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "userInfo",
         element: <UserInfo />,
+      },
+      {
+        path: "updateUserInfo/:id",
+        element: <UpdateUserInfo />,
+        loader:({params})=>fetch(`http://localhost:5000/getSingleUser/${params.id}`)
       },
     ],
   },
