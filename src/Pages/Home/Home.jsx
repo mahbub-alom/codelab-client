@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./Banner/Banner";
+import Review from "./Review/Review";
 
 // import TopClasses from './TopClasses/TopClasses';
 // import TopInstructors from './TopInstructors/TopInstructors';
@@ -31,7 +32,7 @@ const Home = () => {
           </h1> */}
         {/* <TopInstructors></TopInstructors> */}
       </div>
-      {/* <Community></Community> */}
+      <Review />
     </div>
   );
 };

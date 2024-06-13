@@ -20,7 +20,6 @@ const MyClass = () => {
   if (isPending) {
     return <span>Loading...</span>;
   }
-  console.log(classInfo)
   return (
     <div className="w-full">
       <Roll>
