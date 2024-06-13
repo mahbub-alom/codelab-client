@@ -1,0 +1,42 @@
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  
+  .swiper-slide img {
+    display: block;
+  }
+  
+  /* -------------------------- */
+  
+  #app { height: 100% }
+  
+  
+  .swiper {
+    width: 100%;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .swiper-img-custom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
