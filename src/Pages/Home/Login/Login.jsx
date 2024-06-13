@@ -146,6 +146,7 @@ const Login = () => {
           <p className="text-gray-800 text-center">
             Don't have an account? Please
             <Link to="/register" className="text-[#2196F3]">
+            {" "}
             Register
             </Link>
           </p>
