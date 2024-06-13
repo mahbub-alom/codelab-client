@@ -1,18 +1,9 @@
-// import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaSignOutAlt } from "react-icons/fa";
-// import { ToggleContext } from "../../../Provider/ToggleProvider";
-// import useAdmin from "../../../Hooks/useAdmin";
-// import useInstructorRole from "../../../Hooks/useInstructorRole";
+import useAuth from "../../Hook/useAuth";
 
 const NavBar = () => {
-  //   const { user, logOut } = useContext(AuthContext);
-  //   const { isDark, toggleMode } = useContext(ToggleContext);
-
-  //   const [isAdmin] = useAdmin();
-  //   const [isInstructor] = useInstructorRole();
-  const user = false;
+  const { user, logOut } = useAuth();
 
   const navItems = (
     <>
@@ -41,10 +32,9 @@ const NavBar = () => {
     </>
   );
 
-    const handleLogout = () => {
-        console.log("log out")
-    //   logOut();
-    };
+  const handleLogout = () => {
+    logOut();
+  };
   return (
     <div className="navbar fixed z-10 text-[#2196F3] shadow-sm bg-gray-500 bg-opacity-30 shadow-[#2196F3] h-10 ">
       <div className="navbar-start">
@@ -81,14 +71,13 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-2xl">{navItems}</ul>
       </div>
-      <div className="navbar-end">
       <div className="md:mx-10 ml-auto mr-1">
         {user ? (
           <>
             {user?.photoURL && (
               <div className="avatar">
                 <div className="w-12 h-12 rounded-full">
-                  <img src={ user?.photoURL} />
+                  <img title={user?.displayName} src={user?.photoURL} />
                 </div>
               </div>
             )}
@@ -104,7 +93,6 @@ const NavBar = () => {
             <button className="btn bg-[#6aa5cd] text-white">Login</button>
           </Link>
         )}
-      </div>
       </div>
     </div>
   );
