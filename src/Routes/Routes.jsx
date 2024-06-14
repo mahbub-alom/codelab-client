@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "updateUserInfo/:id",
         element: <UpdateUserInfo />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/getSingleUser/${params.id}`),
+          fetch(`https://codelab-server.onrender.com/getSingleUser/${params.id}`),
       },
       {
         path: "addclass",
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
       {
         path:"updateClass/:id",
         element:<UpdateClass/>,
-        loader:({params})=>fetch(`http://localhost:5000/getSingleClass/${params.id}`)
+        loader:({params})=>fetch(`https://codelab-server.onrender.com/getSingleClass/${params.id}`)
       }
     ],
   },

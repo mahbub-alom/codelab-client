@@ -16,7 +16,7 @@ const Review = () => {
     queryKey: ["review",],
     queryFn: async () => {
       const res = await axios.get(
-        "http://localhost:5000/review"
+        "https://codelab-server.onrender.com/review"
       );
       return res.data;
     },

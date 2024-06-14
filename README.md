@@ -24,3 +24,5 @@ Codelab is an online platform offering a wide range of programming courses desig
     ```
 
 2. Open your browser and navigate to `http://localhost:5173`. The Codelab Online Course Center should be up and running.
+
+3. Here is the live link : https://code-lab-5095c.web.app

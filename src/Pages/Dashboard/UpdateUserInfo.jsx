@@ -36,7 +36,7 @@ const UpdateUserInfo = () => {
   const handleSwalFireWithUpdate = (userData) => {
     axios
       .put(
-        `http://localhost:5000/updateUser/${ids}`,
+        `https://codelab-server.onrender.com/updateUser/${ids}`,
         userData,
         {
             headers: {

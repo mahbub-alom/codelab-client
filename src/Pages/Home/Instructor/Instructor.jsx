@@ -7,7 +7,7 @@ const Instructor = () => {
   const { data: instructor = [], isPending } = useQuery({
     queryKey: ["instructor"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/instructor");
+      const res = await axios.get("https://codelab-server.onrender.com/instructor");
       return res.data;
     },
   });

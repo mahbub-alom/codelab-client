@@ -14,7 +14,7 @@ const SelectedClass = () => {
   } = useQuery({
     queryKey: ["selectedClass"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/getCarts");
+      const res = await axios.get("https://codelab-server.onrender.com/getCarts");
       return res.data;
     },
   });
@@ -32,7 +32,7 @@ const SelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/carts/${cls?._id}`).then((res) => {
+        axios.delete(`https://codelab-server.onrender.com/carts/${cls?._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({

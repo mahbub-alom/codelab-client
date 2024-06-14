@@ -16,7 +16,7 @@ const AllClass = () => {
   } = useQuery({
     queryKey: ["allclass"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/getAllClass");
+      const res = await axios.get("https://codelab-server.onrender.com/getAllClass");
       return res.data;
     },
   });
@@ -34,7 +34,7 @@ const AllClass = () => {
         price: singleClass.price,
         image:singleClass.classImage
       };
-      axios.post("http://localhost:5000/carts", cartItem).then((data) => {
+      axios.post("https://codelab-server.onrender.com/carts", cartItem).then((data) => {
         const resultData = data.data;
         if (resultData.insertedId) {
           Swal.fire({

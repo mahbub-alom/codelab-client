@@ -11,7 +11,7 @@ const Payment = () => {
   const { data: selectedClass = [] } = useQuery({
     queryKey: ["selectedClass"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/getCarts");
+      const res = await axios.get("https://codelab-server.onrender.com/getCarts");
       return res.data;
     },
   });

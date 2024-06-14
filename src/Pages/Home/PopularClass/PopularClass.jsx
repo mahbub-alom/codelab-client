@@ -7,7 +7,7 @@ const PopularClass = () => {
   const { data: popularClass = [], isPending } = useQuery({
     queryKey: ["popularClass"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/getAllClass");
+      const res = await axios.get("https://codelab-server.onrender.com/getAllClass");
       return res.data;
     },
   });

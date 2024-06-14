@@ -40,7 +40,7 @@ const Register = () => {
             photoURL: data.photoURL,
           };
           axios
-            .post("http://localhost:5000/postUser", saveUser)
+            .post("https://codelab-server.onrender.com/postUser", saveUser)
             .then((data) => {
               if (data?.data?.insertedId) {
                 reset();

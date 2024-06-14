@@ -22,7 +22,7 @@ const CheckoutForm = ({ payClass, id }) => {
     if (price > 0) {
       axios
         .post(
-          "http://localhost:5000/create-payment-intent",
+          "https://codelab-server.onrender.com/create-payment-intent",
           {
             price,
           }
@@ -100,7 +100,7 @@ const CheckoutForm = ({ payClass, id }) => {
       };
       axios
         .post(
-          "http://localhost:5000/payments",
+          "https://codelab-server.onrender.com/payments",
           payment,
           config
         )
@@ -109,7 +109,7 @@ const CheckoutForm = ({ payClass, id }) => {
           if (res.data.postResult.insertedId) {
             axios
               .delete(
-                `http://localhost:5000/classes/selected?email=${user?.email}`,
+                `https://codelab-server.onrender.com/classes/selected?email=${user?.email}`,
                 // config
               )
               .then((res) => {

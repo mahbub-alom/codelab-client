@@ -17,7 +17,7 @@ const MyClass = () => {
     queryKey: ["classInfo", user?.email],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/getClass?email=${user.email}`
+        `https://codelab-server.onrender.com/getClass?email=${user.email}`
       );
       return res.data;
     },
@@ -38,7 +38,7 @@ const MyClass = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/removeClass/${cls?._id}`)
+          .delete(`https://codelab-server.onrender.com/removeClass/${cls?._id}`)
           .then((data) => {
             refetch();
             if (data.data.deletedCount > 0) {

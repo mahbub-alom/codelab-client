@@ -56,7 +56,7 @@ const AddAClass = () => {
   const handleSwalFireWithUpdate = (classData) => {
     const token = localStorage.getItem("access-token");
     axios
-      .post("http://localhost:5000/classes", classData, {
+      .post("https://codelab-server.onrender.com/classes", classData, {
         headers: {
           authorization: `Bearer ${token}`,
         },

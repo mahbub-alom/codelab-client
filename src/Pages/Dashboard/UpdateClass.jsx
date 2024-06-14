@@ -60,7 +60,7 @@ const UpdateClass = () => {
 
     axios
       .patch(
-        "http://localhost:5000/classes/update",
+        "https://codelab-server.onrender.com/classes/update",
         { classData },
         {
           headers: {
