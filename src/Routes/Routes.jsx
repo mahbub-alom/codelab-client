@@ -16,6 +16,7 @@ import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 import UpdateClass from "../Pages/Dashboard/UpdateClass";
 import PrivateRoute from "./PrivateRoute";
+import Instructor from "../Pages/Home/Instructor/Instructor";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/allClasses",
         element: <AllClass />,
+      },
+      {
+        path: "/instructors",
+        element: <Instructor />,
       },
     ],
   },
