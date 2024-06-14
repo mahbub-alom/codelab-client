@@ -56,18 +56,17 @@ const UpdateClass = () => {
   };
 
   const handleSwalFireWithUpdate = (classData) => {
-    // const token = localStorage.getItem("access-token");
+    const token = localStorage.getItem("access-token");
 
     axios
       .patch(
         "http://localhost:5000/classes/update",
         { classData },
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // }
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((response) => {
         if (response.data) {

@@ -38,7 +38,7 @@ const AddAClass = () => {
                 instructorName: user?.displayName,
                 instructorEmail: user?.email,
                 availableSeats: data.availableSeats,
-                description:data.description,
+                description: data.description,
                 price: data.price,
                 status: "pending",
                 totalEnrolled: 0,
@@ -54,13 +54,13 @@ const AddAClass = () => {
   };
 
   const handleSwalFireWithUpdate = (classData) => {
-    // const token = localStorage.getItem("access-token");
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${token}`,
-    //   },
+    const token = localStorage.getItem("access-token");
     axios
-      .post("http://localhost:5000/classes", classData)
+      .post("http://localhost:5000/classes", classData, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
       .then((data) => {
         if (data.data.insertedId) {
           reset();
@@ -154,10 +154,12 @@ const AddAClass = () => {
           <div>
             <label className="form-control">
               <div className="label">
-              <label className="text-gray-700 font-semibold">Description:</label>
+                <label className="text-gray-700 font-semibold">
+                  Description:
+                </label>
               </div>
               <textarea
-              {...register("description", { required: true })}
+                {...register("description", { required: true })}
                 className="textarea textarea-bordered h-24"
                 placeholder="Course Description"
               ></textarea>

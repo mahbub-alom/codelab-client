@@ -92,17 +92,17 @@ const CheckoutForm = ({ payClass, id }) => {
         price,
         date: new Date(),
       };
-    //   const token = localStorage.getItem("access-token");
-    //   const config = {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   };
+      const token = localStorage.getItem("access-token");
+      const config = {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      };
       axios
         .post(
           "http://localhost:5000/payments",
           payment,
-        //   config
+          config
         )
         .then((res) => {
           // console.log("from step one", res.data);

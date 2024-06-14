@@ -88,7 +88,7 @@ const AllClass = () => {
               <span className="font-bold text-[#2196F3]">Price </span> $
               {singleClass?.price}
             </p>
-            <p>Description: {singleClass?.description}</p>
+            <p><span className="font-bold text-[#2196F3]">Description: </span> {singleClass?.description}</p>
             <div className="card-actions justify-end">
               <button
                 onClick={() => handleAddToBuy(singleClass)}

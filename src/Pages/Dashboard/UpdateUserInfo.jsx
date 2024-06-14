@@ -37,12 +37,12 @@ const UpdateUserInfo = () => {
     axios
       .put(
         `http://localhost:5000/updateUser/${ids}`,
-        userData
-        // {
-        //     headers: {
-        //         authorization: `Bearer ${localStorage.getItem("access-token")}`
-        //     }
-        // }
+        userData,
+        {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("access-token")}`
+            }
+        }
       )
       .then((data) => {
         console.log(data.data);

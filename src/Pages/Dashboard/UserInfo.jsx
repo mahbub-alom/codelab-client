@@ -10,8 +10,11 @@ const UserInfo = () => {
     queryKey: ["userInfo", user?.email],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/getUser?email=${user.email}`
-      );
+        `http://localhost:5000/getUser?email=${user.email}`,{
+          headers:{
+            authorization:`Bearer ${localStorage.getItem("access-token")}`
+          }
+        });
       return res.data;
     },
   });
