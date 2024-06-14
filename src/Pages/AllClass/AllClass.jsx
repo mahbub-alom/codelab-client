@@ -32,6 +32,7 @@ const AllClass = () => {
         instructorName: singleClass.instructorName,
         availableSeats: singleClass.availableSeats,
         price: singleClass.price,
+        image:singleClass.classImage
       };
       axios.post("http://localhost:5000/carts", cartItem).then((data) => {
         const resultData = data.data;

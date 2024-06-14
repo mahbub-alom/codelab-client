@@ -10,6 +10,9 @@ import UpdateUserInfo from "../Pages/Dashboard/UpdateUserInfo";
 import AddAClass from "../Pages/Dashboard/AddClass";
 import MyClass from "../Pages/Dashboard/MyClass";
 import AllClass from "../Pages/AllClass/AllClass";
+import SelectedClass from "../Pages/Dashboard/SelectedClass";
+import Payment from "../Pages/Payment/Payment";
+import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,18 @@ const router = createBrowserRouter([
         path: "myclass",
         element: <MyClass />,
       },
+      {
+        path: "selectedClass",
+        element: <SelectedClass/>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment/>,
+      },
+      {
+        path:"myenrollclasses",
+        element:<EnrolledClasses/>
+      }
     ],
   },
 ]);
