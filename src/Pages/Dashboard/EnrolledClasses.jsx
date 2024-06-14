@@ -23,7 +23,7 @@ const EnrolledClasses = () => {
   return (
     <div>
       <Rotate>
-        <h1 className="text-2xl font-semibold mb-8">My Enrolled Classes</h1>
+        <h1 className="text-2xl font-semibold mb-8 text-[#2196F3]">My Enrolled Classes</h1>
       </Rotate>
       <div className="grid grid-cols-2 gap-5">
         {enrolled?.map((cls) => (
@@ -38,7 +38,7 @@ const EnrolledClasses = () => {
               <h2 className="card-title">Class Name: {cls?.className}</h2>
               <p>Instructor Name: {cls?.instructorName}</p>
               <div className="card-actions justify-end">
-                <button className="btn text-white bg-fuchsia-500">
+                <button className="my-5 px-2 py-2 bg-[#6aa5cd] text-white shadow-lg shadow-[#b2dbf6] hover:shadow-[#405c6e] font-semibold rounded-lg">
                   Continue Class
                 </button>
               </div>

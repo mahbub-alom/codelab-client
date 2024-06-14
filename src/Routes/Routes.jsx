@@ -14,6 +14,8 @@ import SelectedClass from "../Pages/Dashboard/SelectedClass";
 import Payment from "../Pages/Payment/Payment";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
+import UpdateClass from "../Pages/Dashboard/UpdateClass";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
         path: "userInfo",
@@ -75,6 +77,11 @@ const router = createBrowserRouter([
       {
         path:"paymentHistory",
         element:<PaymentHistory/>
+      },
+      {
+        path:"updateClass/:id",
+        element:<UpdateClass/>,
+        loader:({params})=>fetch(`http://localhost:5000/getSingleClass/${params.id}`)
       }
     ],
   },

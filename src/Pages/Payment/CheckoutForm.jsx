@@ -145,7 +145,7 @@ const CheckoutForm = ({ payClass, id }) => {
 
       <h1 className="text-xl my-5">
         Make payment for{" "}
-        <span className="text-primary font-bold">{payClass?.className}</span>
+        <span className="text-[#2196F3] font-bold">{payClass?.className}</span>
       </h1>
 
       <p className="my-5">Enter your Bank Details</p>
@@ -168,7 +168,7 @@ const CheckoutForm = ({ payClass, id }) => {
         />
         <button
           type="submit"
-          className="btn btn-success mt-4"
+          className="ms-5 py-2 px-4 bg-[#6aa5cd] text-white shadow-lg shadow-[#b2dbf6] hover:shadow-[#405c6e] font-semibold rounded-lg"
           disabled={!stripe || !clientSecret || processing || !user}
         >
           {processing ? (

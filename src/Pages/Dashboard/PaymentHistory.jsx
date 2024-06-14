@@ -22,7 +22,7 @@ const PaymentHistory = () => {
   return (
     <div className="w-full">
       <Slide>
-        <h1 className="text-2xl font-semibold mb-8">Payment History</h1>
+        <h1 className="text-2xl font-semibold mb-8 text-[#2196F3]">Payment History</h1>
       </Slide>
       <div className="overflow-x-auto">
         <table className="table">

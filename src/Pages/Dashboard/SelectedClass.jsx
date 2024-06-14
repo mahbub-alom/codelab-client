@@ -74,9 +74,9 @@ const SelectedClass = () => {
               <td>{cls?.className}</td>
               <td>{cls?.instructorName}</td>
               <td>{cls?.availableSeats}</td>
-              <td>{cls?.price}</td>
+              <td>${cls?.price}</td>
               <td>
-                <button className="btn btn-ghost bg-fuchsia-500 mr-3 text-white">
+                <button className="btn btn-ghost bg-[#6aa5cd] mr-3 text-white">
                   <Link
                     to={`/dashboard/payment/${cls?._id}`}
                     className="text-white"

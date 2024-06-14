@@ -21,27 +21,6 @@ const Payment = () => {
   const payClass = selectedClass.find(
     (cls) => parseFloat(cls._id) === parseFloat(id)
   );
-//   availableSeats
-// : 
-// "40"
-// className
-// : 
-// "java"
-// email
-// : 
-// "mdmahbuba034@gmail.com"
-// image
-// : 
-// "https://i.ibb.co/WP59HQg/download.png"
-// instructorName
-// : 
-// "Md Mahbub Alom"
-// price
-// : 
-// "14999"
-// _id
-// : 
-// "666b7b8e51d4136f84c54bca"
 
   return (
     <div className="w-full">
